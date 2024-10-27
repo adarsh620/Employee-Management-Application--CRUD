@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System - CRUD</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<div class="container">
+  <h2>Edit Employee</h2>
+  <form th:action="@{/saveEmployee}" th:object="${employee}" method="post">
+    <!-- Hidden field for ID -->
+    <input type="hidden" th:field="*{id}"/>
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" th:field="*{firstName}" placeholder="First Name"/>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control" th:field="*{lastName}" placeholder="Last Name"/>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" class="form-control" th:field="*{email}" placeholder="Email"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+  <hr>
+    <a class="btn btn-primary mb-3" th:href="@{/}">Back to Employees List</a>
+  </hr>
+</div>
+</html>
